@@ -1,3 +1,5 @@
 FROM	nginx:latest
 COPY	./nginx.conf /etc/nginx/conf.d/default.conf
+RUN	mkdir -pv /etc/letsencrypt/
 RUN	useradd -u 1000 webuser
+RUN	chown 1000:1000 /etc/letsencrypt/ -Rv
